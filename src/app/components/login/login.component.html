@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-4 mt-5 mx-auto">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    
+    
+    <div class="form-group">
+        
+      <input formControlName="email" type="email"  class="form-control" id="floatingInput" placeholder="Email Address">
+      <div>
+      <div *ngIf="loginForm.controls.email.getError('required') && (loginForm.controls.email.touched || loginForm.controls.email.dirty)">
+          
+        This field is required
+          </div>
+          <div *ngIf="loginForm.controls.email.getError('email')&& (loginForm.controls.email.touched || loginForm.controls.email.dirty)">
+        This field should be email address
+          </div>
+        </div></div>
+      
+    <br>
+    <div class="form-group">
+      <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <div *ngIf="loginForm.controls.password.getError('required') && (loginForm.controls.password.touched || loginForm.controls.password.dirty)">
+        This field is required
+    </div>
+    <div *ngIf="loginForm.controls.password.getError('minlength')&& (loginForm.controls.email.touched || loginForm.controls.email.dirty)">
+         password should be min 8 character
+          </div>
+    </div>
+    <br>
+
+ 
+    <button [disabled]="loginForm.invalid" class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted" style="text-align-last:center">© 2020–2021</p>
+
+    
+
+</form>
+</div>
+</div>
