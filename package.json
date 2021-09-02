@@ -3,17 +3,19 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "heroku-postbuild": "ng build --prod && npm install -g http-server-spa",
-    "start": "http-server-spa dist/angular-reddit-clone index.html $PORT",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~12.2.0",
+    "@angular/cli": "^12.2.4",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
+    "@angular/compiler-cli": "^12.2.4",
     "@angular/core": "~12.2.0",
     "@angular/forms": "~12.2.0",
     "@angular/platform-browser": "~12.2.0",
@@ -22,18 +24,22 @@
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "bootstrap": "^5.1.0",
     "bootswatch": "^5.1.0",
+    "express": "^4.17.1",
     "jquery": "^3.6.0",
     "ngx-toastr": "^14.1.0",
+    "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
+    "typescript": "~4.3.5",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.2",
-    "@angular/cli": "~12.2.2",
-    "@angular/compiler-cli": "~12.2.0",
+    "@angular/cli": "^12.2.4",
+    "@angular/compiler-cli": "^12.2.4",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
+    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -41,5 +47,9 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.3.5"
+  },
+  "engines": {
+    "node": "14.17.5",
+    "npm": "6.14.14"
   }
 }
